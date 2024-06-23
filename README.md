@@ -40,3 +40,6 @@ A Single unit test has been added to make sure that the core functionality is wo
 1. GitHub Actions has been added to run the test cases on every push to the repository. 🚀📂
 2. Containerization has been done using Docker. 🐳📦
 3. Added unit test cases to make sure the core functionality is working as expected. 🧪✅
+
+## Time Complexity
+1. The time complexity of the algorithm is *_O(n * m)_* where n is the number of locations and m is the number of dates.
