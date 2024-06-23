@@ -1,5 +1,5 @@
 import express from 'express';
-import {readJSONFile, findLongestDayLightDurationPlace} from "./utility/helper.js";
+import {findLongestDayLightDurationPlace, readJSONFile} from "./utility/helper.js";
 
 let app = express();
 
@@ -13,7 +13,15 @@ app.get('/longest-sunlight-locations', async (req, res) => {
     console.log(result);
   }
   res.send(response);
-})
+});
+
+app.get('/longest-sunlight-location/:date', async (req, res) => {
+  let response = {};
+  let jsonData = await readJSONFile('./coding_challenge_locations.json');
+  let date = req.params.date;
+  response[date] = await findLongestDayLightDurationPlace(jsonData, date);
+  res.send(response);
+});
 
 let server = app.listen(3000, () => {
   console.log('Server is running on port 3000');
